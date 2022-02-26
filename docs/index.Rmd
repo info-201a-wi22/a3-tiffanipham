@@ -1,0 +1,44 @@
+---
+title: "Incarceration Data Project"
+author: "Tiffani Pham"
+date: "02/25/2022"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Introduction
+The problem domain is that there is **racism** in the United States prison system. There are a complex set of _social and political_ structures that have led to the disproportionate incarceration of people of color. This data set has 153,811 observations. The variables I am choosing to analyze are **total jail population and the separate race jail populations in different years, states, and counties**. I am choosing to analyze these specific variables because I want to compare the proportion of different races that are in jail, through different years and states/counties. This is important to analyze because from the data, one can see that there is a difference in numbers of incarcerations based on race.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+source("../source/analysis.R")
+library(knitr)
+```
+
+## Summary Information
+From this data, I calculated **7** different meaningful values. The most recent recorded year in this data set is 2018. With that being said, I found the total jail population in 2018, which was about **`r summary_info$total_jail_pop_2018`**. This is important because when analyzing this data, time was a big part of my analysis, and the most recent year is salient since I wanted to get an idea of the amount of incarcerations closest to the current year. Next, I found the proportion of the black jail population in 2018, which is about **`r summary_info$black_jail_prop_2018`**. This is a high percentage of people within a certain race that were put into jail. Third, I found the proportion of nonwhite jail population in 2018, which was about **`r summary_info$nonwhite_jail_prop_2018`**. The different states play a big part in this calculation because some states have a higher white population than others, vice versa. Fourth, I found that **`r summary_info$state_most_jail`** is the state that has the highest jail population in 2018. **`r summary_info$highest_black_jail`** happens to have the highest black jail population in 2018, whereas **`r summary_info$highest_white_jail`** has the highest white jail population in 2018. Last, I found that the average population of black jail inmates across all counties is about  **`r summary_info$avg_black_jail_pop`** people. 
+
+## Charts/Plots Generated from Incarceration Trends Dataset
+
+### #1
+<br />
+```{r echo=FALSE}
+plot(time_chart)
+```
+<br /> This chart shows the Los Angeles County jail population separated by race over time. I included this chart because California was the state with the highest jail population, so it was appropriate to extract a chart to see how jail population varied by race over time. I chose to do multiple lines on a line chart to represent the different races because it shows how unfair the prison system is. This is important to see because California is a very _diverse_ state that is very _populated_. What I found from looking at this chart was that **since 1985, there were always more Black and Latinx people in jail** compared to White people in jail. Also, "other races" and Native people had the least amount of jail population.
+
+### #2 
+<br />
+```{r echo=FALSE, message=FALSE}
+plot(comparison_chart)
+```
+<br /> This chart shows the comparison between black and white jail population in the most jail populated county in California, Los Angeles County. I chose to do another chart regarding Los Angeles County because California has the highest black jail population out of all of the counties in 2018. I believe that a pie chart best represented the comparison between the two. What I did was add up black and white jail populations in 2018 and found the proportions of them compared to each other. From this chart, you can see that in Los Angeles County, **there are way more black people in jail compared to white people**. This really makes people believe that there actually is _racism in the United States prison system_. You can see that black jail population is 2 times as much as white jail population in Los Angeles County.
+
+### #3
+<br />
+```{r echo=FALSE}
+plot(ca_jail_map)
+```
+<br /> This map shows California and its black jail population varying from different counties. I included this map because it is important to see which areas in the highest black jail populated state has the most people. As you can see by looking at this chart, Southern California has more red areas as compared to Northern California, meaning that Southern California has a higher black jail population. The area that is bright red happens to be Los Angeles County, which is the highest black jail populated county in California. 
